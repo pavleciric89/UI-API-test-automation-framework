@@ -8,6 +8,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.Cart_Page;
+import pageObjects.Checkout_Step_One;
+import pageObjects.Checkout_Step_Two;
 import pageObjects.Inventory_Main_Page;
 import pageObjects.Login_Page;
 
@@ -16,6 +18,8 @@ public class UI_OrdersStep {
 	public Login_Page loginPage = new Login_Page();
 	public Inventory_Main_Page inventoryMainPage = new Inventory_Main_Page();
 	public Cart_Page cartPage = new Cart_Page();
+	public Checkout_Step_One checkoutStepOne = new Checkout_Step_One();
+	public Checkout_Step_Two checkoutStepTwo = new Checkout_Step_Two();
 	
 	@When("The user enter a valid credentials")
 	public void the_user_enter_a_valid_credentials(){
@@ -70,29 +74,32 @@ public class UI_OrdersStep {
 	}
 	
 	@And("Clicks Checkout button")
-	public void clicks_checkout_button() throws Exception {
-		Thread.sleep(2000);
+	public void clicks_checkout_button(){
 		cartPage.clickCheckout();
 	}
 
 	@And("User enter {string}, {string} and {string}")
-	public void user_enter_and(String string, String string2, String string3) {
-	    
+	public void user_enter_and(String firstName, String lastName, String zipCode) {
+		checkoutStepOne.enterFirstName(firstName);
+		checkoutStepOne.enterLastName(lastName);
+		checkoutStepOne.enterZipCode(zipCode);
+		
+		
 	}
 
 	@And("Clicks Continue button")
 	public void clicks_Continue_button() {
-	    
+		checkoutStepOne.clickContinueButton();
 	}
 
 	@Then("Tax should be {string}")
-	public void tax_should_be(String string) {
-	    
+	public void tax_should_be(String taxValue) {
+		checkoutStepTwo.checkTax(taxValue);
 	}
 
 	@And("Total should be {string}")
-	public void total_should_be(String string) {
-	    
+	public void total_should_be(String totalValue) {
+	    checkoutStepTwo.checkTotal(totalValue);
 	}
 
 }

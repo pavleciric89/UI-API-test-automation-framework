@@ -45,7 +45,7 @@ public class DriverFactory {
 			}
 			driver.manage().deleteAllCookies();
 			//driver.manage().window().maximize();
-			driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 			driver.get(webSiteUrl);
 		} catch (Exception e) {
 			e.printStackTrace();

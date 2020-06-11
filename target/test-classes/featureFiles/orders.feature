@@ -29,11 +29,11 @@ Scenario Outline: Validate tax and total
         
 	And User clicks on shoping cart icon
 	And Clicks Checkout button
-	And User enter "<first name>", "<last name>" and "<zip code>"
+	And User enter "<firstName>", "<lastName>" and "<zipCode>"
 	And Clicks Continue button
 	Then Tax should be "Tax: $10.40"
 	And Total should be "Total: $140.34"
 	
 	Examples:
-	|user name 	|last name	|zip code	|
+	|firstName |lastName	|zipCode	|
 	|Petar		|Petrovic	|21000		|	
