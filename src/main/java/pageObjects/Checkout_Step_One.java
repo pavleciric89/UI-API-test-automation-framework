@@ -13,7 +13,7 @@ public class Checkout_Step_One extends DriverFactory {
 	}
 	WebDriverWait wait = new WebDriverWait(driver, 10);
 	
-
+ 
 	public void enterFirstName(String firstName) {
 		WebElement firstNameEl = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='first-name']")));
 		firstNameEl.sendKeys(firstName);
