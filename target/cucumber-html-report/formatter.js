@@ -93,7 +93,7 @@ CucumberHTML.DOMFormatter = function(rootNode) {
     }
   };
 
-  this.embedding = function(mediaType, data, name) {
+  this.embedding = function(mimeType, data, name) {
     var nameHtml;
     if (!name) {
       nameHtml = "";
@@ -103,15 +103,15 @@ CucumberHTML.DOMFormatter = function(rootNode) {
     if (currentStepIndex == 1) {
       this.dummyStep();
     }
-    if (mediaType.match(/^image\//))
+    if (mimeType.match(/^image\//))
     {
       currentStep.append(nameHtml + '<img src="' + data + '">');
     }
-    else if (mediaType.match(/^video\//))
+    else if (mimeType.match(/^video\//))
     {
-      currentStep.append(nameHtml + '<video src="' + data + '" type="' + mediaType + '" autobuffer controls>Your browser doesn\'t support video.</video>');
+      currentStep.append(nameHtml + '<video src="' + data + '" type="' + mimeType + '" autobuffer controls>Your browser doesn\'t support video.</video>');
     }
-    else if (mediaType.match(/^text\//))
+    else if (mimeType.match(/^text\//))
     {
       this.write(nameHtml + data);
     }

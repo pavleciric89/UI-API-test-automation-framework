@@ -45,7 +45,7 @@ public class API_Step {
 
 	@Then("Should be {int} items per page and first_name {string}")
 	public void should_be_items_per_page_and_first_name(Integer numberOfItemsPerPage, String firstName) {
-		assertThat(response.getBody().jsonPath().get("data[0].first_name"), Matchers.equalTo(firstName));
+		assertThat(response.getBody().jsonPath().get("data[0].first_name"), Matchers.is(firstName));
 		assertThat(response.getBody().jsonPath().get("data"), Matchers.hasSize(numberOfItemsPerPage));
 	}
 	
@@ -66,6 +66,6 @@ public class API_Step {
 
 	@Then("Should be response status code {int}")
 	public void should_be_response_status_code(Integer statusCode) {
-		assertThat(response.statusCode(), Matchers.equalTo(statusCode));
+		assertThat(response.statusCode(), Matchers.is(statusCode));
 	}
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="stepDefs.API_Step">
+        <methods>
+          <include name="perform_POST_operation_for_with_body"/>
+          <include name="perform_DELETE_operation_for"/>
+          <include name="user_perform_POST_operation_for_with_body"/>
+          <include name="should_be_response_status_code"/>
+          <include name="should_be_items_per_page_and_first_name"/>
+          <include name="status_code_should_be_and_token"/>
+          <include name="user_perform_GET_method_for"/>
+        </methods>
+      </class> <!-- stepDefs.API_Step -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
